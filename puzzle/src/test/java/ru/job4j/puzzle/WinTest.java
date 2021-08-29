@@ -55,41 +55,4 @@ public class WinTest {
         };
         assertThat(Win.check(board), is(false));
     }
-
-    @Test
-    public void whenNDiagLWin() {
-        int[][] board = {
-                {1, 0, 0, 0, 0},
-                {0, 1, 0, 0, 0},
-                {0, 0, 1, 0, 0},
-                {0, 0, 0, 1, 0},
-                {1, 0, 1, 1, 1},
-        };
-        assertThat(Win.check(board), is(true));
-    }
-
-    @Test
-    public void whenNDiagRWin() {
-        int[][] board = {
-                {1, 0, 0, 0, 1},
-                {0, 1, 0, 1, 0},
-                {0, 0, 1, 0, 0},
-                {0, 1, 0, 1, 0},
-                {1, 0, 1, 1, 1},
-        };
-        assertThat(Win.check(board), is(true));
-    }
-
-    @Test
-    public void whenNDiagNotWin() {
-        int[][] board = {
-                {1, 0, 0, 0, 1},
-                {0, 1, 0, 1, 0},
-                {0, 0, 0, 0, 0},
-                {0, 1, 0, 1, 0},
-                {1, 0, 1, 0, 1},
-        };
-        assertThat(Win.check(board), is(false));
-    }
-
 }
