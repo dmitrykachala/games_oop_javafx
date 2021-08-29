@@ -44,10 +44,11 @@ public class Win {
                     break;
                 }
                 success++;
-                if (success % board.length == 0) {
-                    return true;
-                }
+            if (success % board.length == 0) {
+                return true;
+            }
         }
+        success = 0;
         for (int i = 0; i < board.length; i++) {
                 if (board[i][board.length - 1 - i] == 0) {
                     break;
