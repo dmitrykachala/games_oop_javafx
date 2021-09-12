@@ -32,14 +32,10 @@ public class BishopBlackTest {
         assertArrayEquals(expected, rsl);
     }
 
-    @Test
+    @Test(expected = ImpossibleMoveException.class)
     public void noWay() throws ImpossibleMoveException {
         BishopBlack bs = new BishopBlack(Cell.C1);
-        try {
             bs.way(Cell.G4);
-        } catch (ImpossibleMoveException thrown) {
-        assertThat(thrown.getMessage(), is("Could not way by diagonal from C1 to G4"));
-        }
     }
 
     @Test
