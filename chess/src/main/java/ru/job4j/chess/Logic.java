@@ -14,13 +14,21 @@ public final class Logic {
 
     public void move(Cell source, Cell dest)
             throws FigureNotFoundException, ImpossibleMoveException, OccupiedCellException {
-        int index = findBy(source);
-        Cell[] steps = figures[index].way(dest);
-        free(steps);
-        figures[index] = figures[index].copy(dest);
+            int index = findBy(source);
+            Cell[] steps = figures[index].way(dest);
+            free(steps);
+            figures[index] = figures[index].copy(dest);
     }
 
     private boolean free(Cell[] steps) throws OccupiedCellException {
+        for (Figure figure : figures) {
+            for (Cell cell : steps) {
+                if (figure.position() == cell) {
+                    throw new OccupiedCellException(
+                            String.format("The cell %s is occupied.", cell));
+                }
+            }
+        }
         return true;
     }
 
